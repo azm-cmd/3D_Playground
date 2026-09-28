@@ -216,6 +216,16 @@ class _BuildScreenState extends State<BuildScreen> {
                 initialCameraPosition: Vector3(3, 3.5, 6),
                 manipulatorType: ManipulatorType.ORBIT,
                 background: Colors.black,
+                // Placed bricks use the (lit, PBR) ubershader material —
+                // without a light in the scene they render pure black
+                // regardless of their color, indistinguishable from an
+                // empty viewport. This is the one direct light the scene
+                // has; angled off-axis so top and side faces both catch
+                // some light instead of reading as flat silhouettes.
+                directLight: DirectLight.sun(
+                  direction: Vector3(-0.4, -1, -0.3).normalized(),
+                  castShadows: false,
+                ),
                 onViewerAvailable: _onViewerAvailable,
               ),
             ),
