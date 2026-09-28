@@ -2,6 +2,13 @@
 
 A new Flutter project.
 
+## Running on web
+
+Use `tool/run_web.sh` (or `tool/run_web.ps1` on Windows) instead of a plain
+`flutter run -d web-server` — the Thermion 3D viewport needs the page served
+cross-origin isolated, and that script sets the one flag for it. See
+[`tool/README.md`](tool/README.md) for why.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
