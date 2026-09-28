@@ -118,13 +118,12 @@ class _BrickDockState extends State<BrickDock> {
               : GridView.builder(
                   controller: widget.scrollController,
                   padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-                  gridDelegate:
-                      const SliverGridDelegateWithMaxCrossAxisExtent(
-                        maxCrossAxisExtent: 160,
-                        mainAxisSpacing: 12,
-                        crossAxisSpacing: 12,
-                        childAspectRatio: 0.78,
-                      ),
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 160,
+                    mainAxisSpacing: 12,
+                    crossAxisSpacing: 12,
+                    childAspectRatio: 0.78,
+                  ),
                   itemCount: results.length,
                   itemBuilder: (context, index) {
                     final brick = results[index];

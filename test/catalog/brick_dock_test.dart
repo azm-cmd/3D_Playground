@@ -44,10 +44,15 @@ void main() {
     for (final brick in matching) {
       expect(find.text(brick.name), findsOneWidget);
     }
-    expect(find.text('${matching.length} of ${kStarterBricks.length} bricks'), findsOneWidget);
+    expect(
+      find.text('${matching.length} of ${kStarterBricks.length} bricks'),
+      findsOneWidget,
+    );
   });
 
-  testWidgets('search is case-insensitive and matches keywords', (tester) async {
+  testWidgets('search is case-insensitive and matches keywords', (
+    tester,
+  ) async {
     await tester.pumpWidget(_wrap(const BrickDock()));
     await tester.pumpAndSettle();
 
@@ -91,9 +96,7 @@ void main() {
     expect(textField.controller?.text, isEmpty);
   });
 
-  testWidgets('tapping a brick reports it via onBrickSelected', (
-    tester,
-  ) async {
+  testWidgets('tapping a brick reports it via onBrickSelected', (tester) async {
     final selected = <String>[];
     await tester.pumpWidget(
       _wrap(BrickDock(onBrickSelected: (brick) => selected.add(brick.id))),
